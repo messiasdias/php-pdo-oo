@@ -1,0 +1,19 @@
+name: Deploy documentation 
+on:
+  pull_request:
+    branchs: 
+      - [master]
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout ✔
+        uses: actions/checkout@v2
+
+      - name: Deploy Documentation on Github Pages  🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/
+          CLEAN: true

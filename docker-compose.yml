@@ -1,0 +1,12 @@
+version: "2"
+services:
+  db:
+    container_name: php_pdo_oo
+    privileged: true
+    image: mariadb
+    ports:
+      - "33068:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=php_pdo_oo
+    restart: always
